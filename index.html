@@ -38,5 +38,52 @@
         background: white;
         color: #ff0051;
         font-size: 20px;
-        border-radius: 15p
+        border-radius: 15px;
+        cursor: pointer;
+        transition: 0.2s;
+    }
 
+    button:hover {
+        transform: scale(1.1);
+        background: #ffe5ec;
+    }
+
+    #respuesta {
+        font-size: 30px;
+        margin-top: 30px;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px #ffffff;
+    }
+
+</style>
+</head>
+<body>
+
+<h1>💘 Yosymar 💘</h1>
+
+<div class="card">
+    <p>
+        Desde que te conocí, todo se volvió más bonito.  
+        Este es un detallito especial para ti 💖
+    </p>
+
+    <h2>¿Quieres ser mi novia? 💕</h2>
+
+    <button onclick="si()">Sí 😍</button>
+    <button onclick="no()">No 😭</button>
+
+    <p id="respuesta"></p>
+</div>
+
+<script>
+function si() {
+    document.getElementById("respuesta").innerHTML = "¡Sabía que dirías que sí! 💞💍✨";
+}
+
+function no() {
+    document.getElementById("respuesta").innerHTML = "No importa... igual te quiero 😢💔";
+}
+</script>
+
+</body>
+</html>
