@@ -49,3 +49,97 @@
         transform: scale(1.1);
         background: #ffe5ec;
     }
+
+    .petalo {
+        position: fixed;
+        top: -50px;
+        width: 20px;
+        height: 20px;
+        background: url('https://i.ibb.co/K0q6vBx/petalo.png') no-repeat center center;
+        background-size: contain;
+        z-index: 1000;
+        pointer-events: none;
+        animation-name: caer;
+        animation-duration: 8s;
+        animation-iteration-count: infinite;
+        opacity: 0.8;
+    }
+
+    @keyframes caer {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+        50% { transform: translateY(50vh) rotate(180deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+</style>
+</head>
+<body>
+
+<div id="pantalla1" class="card">
+    <h1>💘 Yosymar 💘</h1>
+    <p>
+        Yosymar… cada vez que pienso en ti, siento una paz que no puedo explicar.  
+        Tu risa, tu mirada y tu manera de ser hacen que todo se vea más bonito.  
+        Quiero que sepas que me importas mucho, de una manera que solo el corazón entiende.
+    </p>
+    <p>
+        Quiero compartir momentos, risas, secretos… y quizá algo más si tú también quieres.
+    </p>
+
+    <h2>¿Quieres ser mi novia? 💕</h2>
+
+    <button onclick="mostrarSi()">Sí 😍</button>
+    <button onclick="mostrarNo()">No 😢</button>
+</div>
+
+<div id="pantalla2" class="card" style="display:none;">
+</div>
+
+<script>
+// Generar pétalos que caen
+function crearPetalo() {
+    const petalo = document.createElement('div');
+    petalo.classList.add('petalo');
+    petalo.style.left = Math.random() * window.innerWidth + 'px';
+    petalo.style.animationDuration = (6 + Math.random() * 4) + 's';
+    petalo.style.opacity = Math.random();
+    document.body.appendChild(petalo);
+
+    setTimeout(() => {
+        document.body.removeChild(petalo);
+    }, 8000);
+}
+
+// Crear varios pétalos cada segundo
+setInterval(crearPetalo, 300);
+
+// Funciones para cambiar de pantalla
+function mostrarSi() {
+    document.getElementById("pantalla1").style.display = "none";
+    document.getElementById("pantalla2").style.display = "block";
+    document.getElementById("pantalla2").innerHTML = `
+        <h1>💖 Qué emoción 😍💖</h1>
+        <p>
+            ¡Me alegra tanto que digas que sí!  
+            Prometo que cada momento juntos será especial, divertido y lleno de cariño.  
+            Contigo todo se siente más bonito.
+        </p>
+    `;
+}
+
+function mostrarNo() {
+    document.getElementById("pantalla1").style.display = "none";
+    document.getElementById("pantalla2").style.display = "block";
+    document.getElementById("pantalla2").innerHTML = `
+        <h1>💛 Está bien 😢💖</h1>
+        <p>
+            No pasa nada… me alegra que podamos seguir siendo amigos.  
+            Tu amistad es valiosa y quiero cuidarla siempre.  
+            Gracias por ser parte de mi vida.
+        </p>
+    `;
+}
+</script>
+
+</body>
+</html>
