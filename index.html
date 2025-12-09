@@ -78,18 +78,20 @@
 <div id="pantalla1" class="card">
     <h1>💘 Yosymar 💘</h1>
     <p>
-        Yosymar… cada vez que pienso en ti, siento una paz que no puedo explicar.  
-        Tu risa, tu mirada y tu manera de ser hacen que todo se vea más bonito.  
-        Quiero que sepas que me importas mucho, de una manera que solo el corazón entiende.
+        Hola Yosymar… solo quería decirte algo que siento desde hace tiempo.  
+        Cada vez que pienso en ti, siento una sonrisa que no se va.  
+        Tu forma de ser, tu risa, todo de ti me hace sentir tranquilo y feliz.
     </p>
+    
     <p>
-        Quiero compartir momentos, risas, secretos… y quizá algo más si tú también quieres.
+        No sé cómo explicarlo del todo, pero me importas mucho y quiero que lo sepas.  
+        Por eso quiero preguntarte algo muy importante...
     </p>
 
     <h2>¿Quieres ser mi novia? 💕</h2>
 
     <button onclick="mostrarSi()">Sí 😍</button>
-    <button onclick="mostrarNo()">No 😢</button>
+    <button onclick="confirmarNo()">No 😢</button>
 </div>
 
 <div id="pantalla2" class="card" style="display:none;">
@@ -110,7 +112,7 @@ function crearPetalo() {
     }, 8000);
 }
 
-// Crear varios pétalos cada segundo
+// Crear varios pétalos cada 300ms
 setInterval(crearPetalo, 300);
 
 // Funciones para cambiar de pantalla
@@ -118,24 +120,37 @@ function mostrarSi() {
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "block";
     document.getElementById("pantalla2").innerHTML = `
-        <h1>💖 Qué emoción 😍💖</h1>
+        <h1>💖 Qué alegría 😍💖</h1>
         <p>
-            ¡Me alegra tanto que digas que sí!  
-            Prometo que cada momento juntos será especial, divertido y lleno de cariño.  
-            Contigo todo se siente más bonito.
+            ¡aweso sabes que te cuidare como nadie lo a echo y siempre estare para ti !  
+            Prometo que vamos a pasar momentos increíbles juntos, riendo, hablando y disfrutando cada instante.  
+            Gracias por confiar en mí. 💕
         </p>
     `;
 }
 
-function mostrarNo() {
+// Primera parte de "No": preguntar si está segura
+function confirmarNo() {
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "block";
     document.getElementById("pantalla2").innerHTML = `
+        <h1>💛 Estás segura? 💖</h1>
+        <p>
+            segurisima estas segura …  
+            Si estás segura, presiona el botón para continuar.
+        </p>
+        <button onclick="mostrarNo()">Sí, estoy segura 😢</button>
+    `;
+}
+
+// Segunda parte de "No": mensaje final
+function mostrarNo() {
+    document.getElementById("pantalla2").innerHTML = `
         <h1>💛 Está bien 😢💖</h1>
         <p>
-            No pasa nada… me alegra que podamos seguir siendo amigos.  
-            Tu amistad es valiosa y quiero cuidarla siempre.  
-            Gracias por ser parte de mi vida.
+            Me alegra que podamos seguir siendo amigos.  
+            Tu amistad es muy importante para mí y quiero cuidarla siempre.  
+            Gracias por estar en mi vida. 🌟
         </p>
     `;
 }
