@@ -19,7 +19,7 @@
 
     p {
         font-size: 22px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 
     .card {
@@ -49,7 +49,7 @@
     }
 
     #respuesta {
-        font-size: 30px;
+        font-size: 24px;
         margin-top: 30px;
         font-weight: bold;
         text-shadow: 2px 2px 5px #ffffff;
@@ -63,8 +63,12 @@
 
 <div class="card">
     <p>
-        Desde que te conocí, todo se volvió más bonito.  
-        Este es un detallito especial para ti 💖
+        Sé que no soy perfecto… sé que vengo con mis fallas y mis raras formas de querer.  
+        Pero aun así, cuando te miro, todo dentro de mí se acomoda. Tú tienes esa magia que no se pide… solo pasa.  
+    </p>
+    
+    <p>
+        Te quiero de una forma tranquila, sincera… como los que sienten mucho pero hablan poco.
     </p>
 
     <h2>¿Quieres ser mi novia? 💕</h2>
@@ -77,11 +81,20 @@
 
 <script>
 function si() {
-    document.getElementById("respuesta").innerHTML = "¡Sabía que dirías que sí! 💞💍✨";
+    document.getElementById("respuesta").innerHTML = `
+        ¡Genial! 💞✨  
+        Sabía que dirías que sí.  
+        Reflexión: El amor verdadero es aceptar y cuidar al otro tal como es,  
+        valorando cada detalle y construyendo algo bonito juntos. 🌹
+    `;
 }
 
 function no() {
-    document.getElementById("respuesta").innerHTML = "No importa... igual te quiero 😢💔";
+    document.getElementById("respuesta").innerHTML = `
+        Está bien 😢💖  
+        De verdad valoro nuestra amistad y quiero que sigamos siendo amigos.  
+        A veces el cariño se muestra de diferentes formas, y lo importante es respetarnos y cuidarnos siempre. 🌟
+    `;
 }
 </script>
 
