@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta charset="UTF-8">
 <title>Yosymar 💖</title>
 <style>
     body {
@@ -10,6 +11,7 @@
         color: white;
         text-align: center;
         padding: 40px;
+        transition: 0.5s;
     }
 
     h1 {
@@ -48,20 +50,12 @@
         background: #ffe5ec;
     }
 
-    #respuesta {
-        font-size: 24px;
-        margin-top: 30px;
-        font-weight: bold;
-        text-shadow: 2px 2px 5px #ffffff;
-    }
-
 </style>
 </head>
 <body>
 
-<h1>💘 Yosymar 💘</h1>
-
-<div class="card">
+<div id="pantalla1" class="card">
+    <h1>💘 Yosymar 💘</h1>
     <p>
         Sé que no soy perfecto… sé que vengo con mis fallas y mis raras formas de querer.  
         Pero aun así, cuando te miro, todo dentro de mí se acomoda. Tú tienes esa magia que no se pide… solo pasa.  
@@ -73,26 +67,32 @@
 
     <h2>¿Quieres ser mi novia? 💕</h2>
 
-    <button onclick="si()">Sí 😍</button>
-    <button onclick="no()">No 😭</button>
+    <button onclick="mostrarSi()">Sí 😍</button>
+    <button onclick="mostrarNo()">No 😭</button>
+</div>
 
-    <p id="respuesta"></p>
+<div id="pantalla2" class="card" style="display:none;">
+    <!-- Aquí aparecerá el contenido según la elección -->
 </div>
 
 <script>
-function si() {
-    document.getElementById("respuesta").innerHTML = `
-        ¡Qué alegría! 😍💖  
-        Me hace muy feliz que quieras intentarlo conmigo.  
-        Estoy seguro de que vamos a vivir momentos muy bonitos juntos. ✨
+function mostrarSi() {
+    document.getElementById("pantalla1").style.display = "none";
+    document.getElementById("pantalla2").style.display = "block";
+    document.getElementById("pantalla2").innerHTML = `
+        <h1>💖 Qué alegría 😍💖</h1>
+        <p>Me hace muy feliz que quieras intentarlo conmigo.  
+        Estoy seguro de que vamos a vivir momentos muy bonitos juntos. ✨</p>
     `;
 }
 
-function no() {
-    document.getElementById("respuesta").innerHTML = `
-        Está bien 😢💖  
-        Me alegra que podamos seguir siendo amigos.  
-        Tu amistad significa mucho para mí y quiero cuidarla siempre. 🌟
+function mostrarNo() {
+    document.getElementById("pantalla1").style.display = "none";
+    document.getElementById("pantalla2").style.display = "block";
+    document.getElementById("pantalla2").innerHTML = `
+        <h1>💛 Está bien 😢💖</h1>
+        <p>Me alegra que podamos seguir siendo amigos.  
+        Tu amistad significa mucho para mí y quiero cuidarla siempre. 🌟</p>
     `;
 }
 </script>
