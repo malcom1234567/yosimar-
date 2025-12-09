@@ -71,6 +71,23 @@
         100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
     }
 
+    .fuego {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: radial-gradient(circle, yellow, orange, red);
+        border-radius: 50%;
+        pointer-events: none;
+        animation-name: explosion;
+        animation-duration: 1s;
+        z-index: 1000;
+    }
+
+    @keyframes explosion {
+        0% { transform: scale(0) translate(0,0); opacity:1; }
+        100% { transform: scale(2) translate(50px,-100px); opacity:0; }
+    }
+
 </style>
 </head>
 <body>
@@ -94,11 +111,10 @@
     <button onclick="confirmarNo()">No 😢</button>
 </div>
 
-<div id="pantalla2" class="card" style="display:none;">
-</div>
+<div id="pantalla2" class="card" style="display:none;"></div>
 
 <script>
-// Generar pétalos que caen
+// Función para pétalos
 function crearPetalo() {
     const petalo = document.createElement('div');
     petalo.classList.add('petalo');
@@ -112,39 +128,57 @@ function crearPetalo() {
     }, 8000);
 }
 
-// Crear varios pétalos cada 300ms
+// Crear pétalos regulares
 setInterval(crearPetalo, 300);
 
-// Funciones para cambiar de pantalla
+// Función para simular fuego artificial
+function crearFuego() {
+    const fuego = document.createElement('div');
+    fuego.classList.add('fuego');
+    fuego.style.left = Math.random() * window.innerWidth + 'px';
+    fuego.style.top = Math.random() * window.innerHeight/2 + 'px';
+    document.body.appendChild(fuego);
+    setTimeout(() => { document.body.removeChild(fuego); }, 1000);
+}
+
+// Crear muchos pétalos y fuegos al decir "Sí"
+function lluviaCelebracion() {
+    for(let i=0;i<50;i++){
+        setTimeout(crearPetalo, i*100);
+        setTimeout(crearFuego, i*150);
+    }
+}
+
+// Funciones de cambio de pantalla
 function mostrarSi() {
+    localStorage.setItem('respuesta','si');
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "block";
     document.getElementById("pantalla2").innerHTML = `
         <h1>💖 Qué alegría 😍💖</h1>
         <p>
-            ¡aweso sabes que te cuidare como nadie lo a echo y siempre estare para ti !  
-            Prometo que vamos a pasar momentos increíbles juntos, riendo, hablando y disfrutando cada instante.  
-            Gracias por confiar en mí. 💕
+            ¡Me pone súper feliz que digas que sí!  
+            Prometo que vamos a pasar momentos increíbles juntos, riendo, hablando y disfrutando cada instante. 💕
         </p>
     `;
+    lluviaCelebracion();
 }
 
-// Primera parte de "No": preguntar si está segura
 function confirmarNo() {
     document.getElementById("pantalla1").style.display = "none";
     document.getElementById("pantalla2").style.display = "block";
     document.getElementById("pantalla2").innerHTML = `
         <h1>💛 Estás segura? 💖</h1>
         <p>
-            segurisima estas segura …  
+            Solo quiero estar seguro de tu respuesta…  
             Si estás segura, presiona el botón para continuar.
         </p>
         <button onclick="mostrarNo()">Sí, estoy segura 😢</button>
     `;
 }
 
-// Segunda parte de "No": mensaje final
 function mostrarNo() {
+    localStorage.setItem('respuesta','no');
     document.getElementById("pantalla2").innerHTML = `
         <h1>💛 Está bien 😢💖</h1>
         <p>
@@ -153,6 +187,19 @@ function mostrarNo() {
             Gracias por estar en mi vida. 🌟
         </p>
     `;
+}
+
+// Al cargar la página, revisar si ya respondió
+window.onload = function(){
+    const resp = localStorage.getItem('respuesta');
+    if(resp==='si'){
+        mostrarSi();
+        document.getElementById("pantalla2").innerHTML += `<p style="font-size:20px; margin-top:20px;">Ella dijo Sí 💖</p>`;
+    }
+    if(resp==='no'){
+        mostrarNo();
+        document.getElementById("pantalla2").innerHTML += `<p style="font-size:20px; margin-top:20px;">Ella dijo No 💛</p>`;
+    }
 }
 </script>
 
