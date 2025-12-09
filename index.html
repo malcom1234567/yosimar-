@@ -2,16 +2,15 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta charset="UTF-8">
 <title>Yosymar 💖</title>
 <style>
     body {
-        background: linear-gradient(135deg, #ff7eb3, #ff758c, #ffb199);
+        background: linear-gradient(135deg, #ffb3c6, #ff7597, #ff4d81);
         font-family: "Arial", sans-serif;
         color: white;
         text-align: center;
         padding: 40px;
-        transition: 0.5s;
+        overflow-x: hidden;
     }
 
     h1 {
@@ -22,10 +21,11 @@
     p {
         font-size: 22px;
         margin-bottom: 20px;
+        line-height: 1.5;
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.15);
         padding: 25px;
         border-radius: 20px;
         width: 80%;
@@ -49,53 +49,3 @@
         transform: scale(1.1);
         background: #ffe5ec;
     }
-
-</style>
-</head>
-<body>
-
-<div id="pantalla1" class="card">
-    <h1>💘 Yosymar 💘</h1>
-    <p>
-        Sé que no soy perfecto… sé que vengo con mis fallas y mis raras formas de querer.  
-        Pero aun así, cuando te miro, todo dentro de mí se acomoda. Tú tienes esa magia que no se pide… solo pasa.  
-    </p>
-    
-    <p>
-        Te quiero de una forma tranquila, sincera… como los que sienten mucho pero hablan poco.
-    </p>
-
-    <h2>¿Quieres ser mi novia? 💕</h2>
-
-    <button onclick="mostrarSi()">Sí 😍</button>
-    <button onclick="mostrarNo()">No 😭</button>
-</div>
-
-<div id="pantalla2" class="card" style="display:none;">
-    <!-- Aquí aparecerá el contenido según la elección -->
-</div>
-
-<script>
-function mostrarSi() {
-    document.getElementById("pantalla1").style.display = "none";
-    document.getElementById("pantalla2").style.display = "block";
-    document.getElementById("pantalla2").innerHTML = `
-        <h1>💖 Qué alegría 😍💖</h1>
-        <p>Me hace muy feliz que quieras intentarlo conmigo.  
-        Estoy seguro de que vamos a vivir momentos muy bonitos juntos. ✨</p>
-    `;
-}
-
-function mostrarNo() {
-    document.getElementById("pantalla1").style.display = "none";
-    document.getElementById("pantalla2").style.display = "block";
-    document.getElementById("pantalla2").innerHTML = `
-        <h1>💛 Está bien 😢💖</h1>
-        <p>Me alegra que podamos seguir siendo amigos.  
-        Tu amistad significa mucho para mí y quiero cuidarla siempre. 🌟</p>
-    `;
-}
-</script>
-
-</body>
-</html>
